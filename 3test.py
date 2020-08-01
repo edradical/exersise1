@@ -82,12 +82,7 @@ def ConquestCampaign(n, m, l, battalion):
         print(x)
         day += 1
 
-    for i in a:
-        print(''.join(str(i)))
-
-    print(day)
-
-print(ConquestCampaign(2, 2, 2, [2, 2, 2, 2]))
+    return(day)
 
 
 
