@@ -31,12 +31,10 @@ class LinkedList:
 
     def find_all(self, val):
         node = self.head
-        index = 0
         x = []
         while node:
             if node.value == val:
-                x.append(index)
-            index += 1
+                x.append(node)
             node = node.next
         if x:
             return x
