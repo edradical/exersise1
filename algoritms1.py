@@ -83,7 +83,7 @@ class LinkedList:
                     prev = node
                     node = node.next
 
-    def __len__(self):
+    def len(self):
         node = self.head
         i = 0
         while node:
