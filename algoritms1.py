@@ -40,8 +40,8 @@ class LinkedList:
             return x
         else:
             return None
-
-        def delete(self, val, all = False):
+    
+    def delete(self, val, all = False):
         node = self.head
         if not all:
             if node:
