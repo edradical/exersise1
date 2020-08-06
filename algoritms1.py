@@ -23,12 +23,10 @@ class LinkedList:
 
     def find (self, val):
         node = self.head
-        index = 0
         while node:
             if node.value == val:
-                return index
+                return node
             node = node.next
-            index += 1
         return None
 
     def find_all(self, val):
