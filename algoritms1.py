@@ -21,13 +21,12 @@ class LinkedList:
             print(node.value)
             node = node.next
 
-    def find (self, val):
+    def find(self, val):
         node = self.head
-        while node:
+        while node is not None:
             if node.value == val:
                 return node
             node = node.next
-            index += 1
         return None
 
     def find_all(self, val):
@@ -124,5 +123,4 @@ class LinkedList:
             x.append(node.value)
             node = node.next
         return(x)
-
 
