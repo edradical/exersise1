@@ -33,7 +33,8 @@ class NameTestCase(unittest.TestCase):
         self.assertEqual(x, y)
 
         self.assertEqual(B.len(), 0)
-        self.assertEqual(B.print_all_nodes(), None)
+        self.assertEqual(B.head, None)
+        self.assertEqual(B.tail, None)
         
         
 if __name__ == '__name__':
