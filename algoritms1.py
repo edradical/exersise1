@@ -43,6 +43,10 @@ class LinkedList:
 
     def delete(self, val, all = False):
         node = self.head
+        
+        if not node:
+            return
+        
         if not all:
             if not all:
                 if node:
