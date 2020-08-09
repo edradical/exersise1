@@ -41,11 +41,16 @@ class LinkedList:
         else:
             return None
 
-    def delete(self, val, all = False):
+     def delete(self, val, all = False):
         node = self.head
         if not all:
             if node:
-                if node.value == val:
+                if self.head == self.tail == val:
+                    self.head = self.tail = None
+                    node = None
+                    return
+
+                elif node.value == val:
                     self.head = node.next
                     node = None
                     return
