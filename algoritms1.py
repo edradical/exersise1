@@ -21,49 +21,61 @@ class LinkedList:
             print(node.value)
             node = node.next
 
-    def find(self, val):
+    def find (self, val):
         node = self.head
-        while node is not None:
+        index = 0
+        while node:
             if node.value == val:
-                return node
+                return index
             node = node.next
+            index += 1
         return None
 
     def find_all(self, val):
         node = self.head
+        index = 0
         x = []
         while node:
             if node.value == val:
-                x.append(node)
+                x.append(index)
+            index += 1
             node = node.next
         if x:
             return x
         else:
             return None
-        
+
     def delete(self, val, all = False):
         node = self.head
         if not all:
-            if node:
-                if node.value == val:
-                    self.head = self.tail = node.next
-                    node = None
-                    return
+            if not all:
+                if node:
+                    if node.value == val:
+                        self.head = self.tail = node.next
+                        node = None
+                        return
 
-            while node:
-                if node.value == val:
-                    break
-                x = node
+                prev = node
                 node = node.next
-            if node == None:
+                while node:
+                    if node.next == None:
+                        node.value = None
+                        self.tail = prev
+                        self.tail.next = None
+                        break
+                    elif node.value == val:
+                        prev.next = node.next
+                        x = node.next
+                        node.value = None
+                        node = x
+                        break
+                if node == None:
+                    return
                 return
-            x.next = node.next
-            node = None
-            return
 
         else:
             if node.value == val:
-                self.head = self.tail = node.next
+                self.head = node.next
 
             prev = node
             node = node.next
@@ -122,5 +134,4 @@ class LinkedList:
         while node:
             x.append(node.value)
             node = node.next
-        return(x)
-
+        return (x)
