@@ -54,17 +54,21 @@ class LinkedList:
                 prev = node
                 node = node.next
                 while node:
-                    if node.next == None:
-                        node.value = None
-                        self.tail = prev
-                        self.tail.next = None
-                        break
-                    elif node.value == val:
-                        prev.next = node.next
-                        x = node.next
-                        node.value = None
-                        node = x
-                        break
+                    if node.value == val:
+                        if node.next == None:
+                            node.value = None
+                            self.tail = prev
+                            self.tail.next = None
+                            break
+                        elif node.value == val:
+                            prev.next = node.next
+                            x = node.next
+                            node.value = None
+                            node = x
+                            break
+                    else:
+                        prev = node
+                        node = node.next
                 if node == None:
                     return
                 return
