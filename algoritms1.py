@@ -46,13 +46,8 @@ class LinkedList:
         node = self.head
         if not all:
             if node:
-                if self.head == self.tail == val:
-                    self.head = self.tail = None
-                    node = None
-                    return
-
-                elif node.value == val:
-                    self.head = node.next
+                if node.value == val:
+                    self.head = self.tail = node.next
                     node = None
                     return
 
