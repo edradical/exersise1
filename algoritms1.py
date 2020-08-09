@@ -23,18 +23,22 @@ class LinkedList:
 
     def find (self, val):
         node = self.head
+        index = 0
         while node:
             if node.value == val:
-                return node
+                return index
             node = node.next
+            index += 1
         return None
 
     def find_all(self, val):
         node = self.head
+        index = 0
         x = []
         while node:
             if node.value == val:
-                x.append(node)
+                x.append(index)
+            index += 1
             node = node.next
         if x:
             return x
@@ -43,43 +47,52 @@ class LinkedList:
 
     def delete(self, val, all = False):
         node = self.head
-        
         if not node:
             return
-        
-        if not all:
-            if not all:
-                if node:
-                    if node.value == val:
-                        self.head = self.tail = node.next
-                        node = None
-                        return
 
-                prev = node
-                node = node.next
-                while node:
-                    if node.value == val:
-                        if node.next == None:
-                            node.value = None
-                            self.tail = prev
-                            self.tail.next = None
-                            break
-                        elif node.value == val:
-                            prev.next = node.next
-                            x = node.next
-                            node.value = None
-                            node = x
-                            break
-                    else:
-                        prev = node
-                        node = node.next
-                if node == None:
+        if not all:
+            if node:
+                if node.value == val and node.next is not None:
+                    self.head = node.next
+                    node = None
                     return
+                elif not node.next:
+                    self.head = self.tail = node.next
+                    node = None
+                    return
+
+            prev = node
+            node = node.next
+            while node:
+                if node.value == val:
+                    if node.next == None:
+                        node.value = None
+                        self.tail = prev
+                        self.tail.next = None
+                        break
+
+                    elif node.value == val:
+                        prev.next = node.next
+                        x = node.next
+                        node.value = None
+                        node = x
+                        break
+                else:
+                    prev = node
+                    node = node.next
+            if node == None:
                 return
+            return
 
         else:
-            if node.value == val:
+            if node.value == val and node.next is not None:
                 self.head = node.next
+                node = None
+                return
+            elif not node.next:
+                self.head = self.tail = node.next
+                node = None
+                return
 
             prev = node
             node = node.next
@@ -139,3 +152,5 @@ class LinkedList:
             x.append(node.value)
             node = node.next
         return (x)
+
+
