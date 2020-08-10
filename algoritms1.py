@@ -116,7 +116,7 @@ class LinkedList:
             node = node.next
         return i
 
-    def clear(self):
+    def clean(self):
         self.__init__()
 
     def insert(self, afterNode, newNode):
