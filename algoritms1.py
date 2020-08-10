@@ -36,10 +36,7 @@ class LinkedList:
             if node.value == val:
                 x.append(node)
             node = node.next
-        if x:
-            return x
-        else:
-            return None
+        return x
 
     def delete(self, val, all = False):
         node = self.head
