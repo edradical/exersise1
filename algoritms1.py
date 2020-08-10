@@ -21,9 +21,9 @@ class LinkedList:
             print(node.value)
             node = node.next
 
-    def find(self, val):
+    def find (self, val):
         node = self.head
-        while node is not None:
+        while node:
             if node.value == val:
                 return node
             node = node.next
@@ -120,30 +120,21 @@ class LinkedList:
         if not self.head:
             self.head = self.tail = newNode
             return
-        elif afterNode == -1 or afterNode == None:
+        elif afterNode == None:
             k = self.head
             self.head = newNode
             self.head.next = k
             return
         node = self.head
-        i = 0
         x = newNode
         while node:
-            if i == afterNode:
+            if node == afterNode:
                 j = node.next
                 node.next = x
                 x.next = j
             if node.next == None:
                 self.tail = x
             node = node.next
-            i += 1
 
-    def add_in_list(self):
-        node = self.head
-        x = []
-        while node:
-            x.append(node.value)
-            node = node.next
-        return (x)
 
 
